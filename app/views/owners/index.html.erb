@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @owners.each do |owner| %>
+    <% @owners.order(:last_name).each do |owner| %>
       <tr>
         <td><%= owner.last_name %></td>
         <td><%= owner.first_name %></td>
