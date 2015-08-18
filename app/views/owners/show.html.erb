@@ -1,13 +1,5 @@
-<p>
-  <strong>Last name:</strong>
-  <%= @owner.last_name %>
-</p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @owner.first_name %>
-</p>
-
+<h1>Owner Details</h1>
+<h3><%= @owner.first_name %> <%= @owner.last_name %></h3>
 <p>
   <strong>Phone:</strong>
   <%= @owner.phone %>
@@ -22,6 +14,13 @@
   <strong>Emergency phone:</strong>
   <%= @owner.emergency_phone %>
 </p>
+
+<h3><%= @owner.first_name %>'s Cats</h3>
+<ul>
+  <% @owner.cats.each do |cat| %>
+    <li><%= link_to cat.name, cat_path %></li>
+  <% end %>
+</ul>
 
 <%= link_to fa_icon("pencil", text: 'Edit'), edit_owner_path(@owner), class: "btn btn-primary" %>
 <%= link_to 'Back', owners_path, class: "btn btn-default" %>
