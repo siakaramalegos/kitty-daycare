@@ -18,9 +18,9 @@
         <td><%= cat.try(:owner).try(:last_name) %></td>
         <td><%= cat.allergies %></td>
         <td><%= cat.in_daycare %></td>
-        <td><%= link_to 'Show', cat %></td>
-        <td><%= link_to 'Edit', edit_cat_path(cat) %></td>
-        <td><%= link_to 'Destroy', cat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to fa_icon("eye", text: 'Show'), cat, class: "btn btn-primary btn-xs" %></td>
+        <td><%= link_to fa_icon("pencil", text: 'Edit'), edit_cat_path(cat), class: "btn btn-warning btn-xs" %></td>
+        <td><%= link_to fa_icon("trash-o", text: 'Delete'), cat, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>

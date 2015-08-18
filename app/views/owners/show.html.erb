@@ -23,5 +23,5 @@
   <%= @owner.emergency_phone %>
 </p>
 
-<%= link_to 'Edit', edit_owner_path(@owner) %> |
-<%= link_to 'Back', owners_path %>
+<%= link_to fa_icon("pencil", text: 'Edit'), edit_owner_path(@owner), class: "btn btn-primary" %>
+<%= link_to 'Back', owners_path, class: "btn btn-default" %>
