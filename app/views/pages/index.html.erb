@@ -1,2 +1,25 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+</div>
+<div class="jumbotron">
+  <h1>Herding Cats</h1>
+  <p>The best and maybe only kitty daycare around town...</p>
+  <br>
+  <p><%= link_to "See our cats", cats_path, class: "btn btn-primary" %></p>
+</div>
+<div class="container-fluid" id="features">
+  <div class="row text-center">
+    <div class="col-md-4">
+      <%= fa_icon "heart", class: "fa-5x" %>
+      <h3>Love</h3>
+      <p>We care for your cats as if they were our own.  From check-in to check-out, trust that your cat is in the best care.</p>
+    </div>
+    <div class="col-md-4">
+      <%= fa_icon "money", class: "fa-5x" %>
+      <h3>Class</h3>
+      <p>We know what it takes to keep your cats happy during their "spa day" here at Herding Cats.</p>
+    </div>
+    <div class="col-md-4">
+      <%= fa_icon "glass", class: "fa-5x" %>
+      <h3>Style</h3>
+      <p>Because your feline deserves it.</p>
+    </div>
+  </div>
