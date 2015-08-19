@@ -16,11 +16,24 @@
 </p>
 
 <h3><%= @owner.first_name %>'s Cats</h3>
-<ul>
+
+<div class="row">
   <% @owner.cats.each do |cat| %>
-    <li><%= link_to cat.name, cat %></li>
+    <div class="col-sm-4">
+      <div class="panel panel-default <%= 'panel-success' if cat.in_daycare %>">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= cat.name %> <%= cat.try(:owner).try(:last_name) %></h3>
+        </div>
+        <div class="panel-body">
+          <%= image_tag cat.avatar.url(:medium), class: "img-responsive" %>
+          <%= link_to fa_icon("eye", text: 'Show'), cat, class: "btn btn-primary btn-xs" %>
+          <%= link_to fa_icon("pencil", text: 'Edit'), edit_cat_path(cat), class: "btn btn-warning btn-xs" %>
+          <%= link_to fa_icon("trash-o", text: 'Delete'), cat, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %>
+        </div>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
 
 <%= link_to fa_icon("pencil", text: 'Edit'), edit_owner_path(@owner), class: "btn btn-primary" %>
 <%= link_to 'Back', owners_path, class: "btn btn-default" %>
