@@ -38,6 +38,7 @@ gem 'font-awesome-rails'
 gem 'annotate'
 gem 'starter_generators'
 gem 'stamp'
+gem "paperclip", "~> 4.3"
 
 group :development do
   gem 'quiet_assets'
