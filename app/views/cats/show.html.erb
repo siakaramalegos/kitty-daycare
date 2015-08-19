@@ -1,46 +1,51 @@
-<h1>Cat Details</h1>
-<h3><%= @cat.name + " " + @cat.owner.last_name %></h3>
+<div class="row">
+  <h1>Cat Details</h1>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <%= image_tag @cat.avatar.url(:medium) %>
+  </div>
+  <div class="col-sm-8">
+    <h3><%= @cat.name + " " + @cat.owner.last_name %></h3>
 
-<p>
-  <strong>Owner:</strong>
-  <%= @cat.owner.first_name + " " + @cat.owner.last_name %>
-</p>
+    <p>
+      <strong>Owner:</strong>
+      <%= link_to "#{@cat.owner.first_name} #{@cat.owner.last_name}", @cat.owner %>
+    </p>
 
-<p>
-  <strong>Breed:</strong>
-  <%= @cat.breed.breed %>
-</p>
+    <p>
+      <strong>Breed:</strong>
+      <%= @cat.breed.breed %>
+    </p>
 
-<p>
-  <strong>Dob:</strong>
-  <%= @cat.dob.stamp("March 1, 1999") %>
-</p>
+    <p>
+      <strong>Dob:</strong>
+      <%= @cat.dob.stamp("March 1, 1999") %>
+    </p>
 
-<p>
-  <strong>Allergies:</strong>
-  <%= @cat.allergies %>
-</p>
+    <p>
+      <strong>Allergies:</strong>
+      <%= @cat.allergies %>
+    </p>
 
-<p>
-  <strong>Vet name:</strong>
-  <%= @cat.vet_name %>
-</p>
+    <p>
+      <strong>Vet name:</strong>
+      <%= @cat.vet_name %>
+    </p>
 
-<p>
-  <strong>Vet phone:</strong>
-  <%= @cat.vet_phone %>
-</p>
+    <p>
+      <strong>Vet phone:</strong>
+      <%= @cat.vet_phone %>
+    </p>
 
-<p>
-  <strong>In daycare:</strong>
-  <%= @cat.in_daycare %>
-</p>
+    <p>
+      <strong>In daycare:</strong>
+      <%= @cat.in_daycare %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <%= image_tag @cat.avatar.url %>
-  <%= image_tag @cat.avatar.url(:medium) %>
-  <%= image_tag @cat.avatar.url(:thumb) %>
-</p>
+
 
 <%= link_to fa_icon("pencil", text: 'Edit'), edit_cat_path(@cat), class: "btn btn-primary" %>
 <%= link_to 'Back', cats_path, class: "btn btn-default" %>
