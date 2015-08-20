@@ -4,7 +4,15 @@ class CatsController < ApplicationController
   # GET /cats
   # GET /cats.json
   def index
-    @cats = Cat.all
+    if params[:search]
+      @cats = Cat.where("name LIKE ?", "%#{params[:search]}%")
+      if @cats.size.zero?
+        flash[:notice] = "No result found"
+        @cats = Cat.all
+      end
+    else
+      @cats = Cat.all
+    end
   end
 
   # GET /cats/1
