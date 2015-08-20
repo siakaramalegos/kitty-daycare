@@ -1,5 +1,12 @@
 <h1>Our Kitties</h1>
 
+<p>Filter by:</p>
+<p>
+  <% @breeds.each do |breed| %>
+    <a href="?breed_ids=<%= breed.id %>"><button class="btn btn-default btn-xs"><%= breed.breed %></button></a>
+  <% end %>
+</p>
+
 <div class="row">
   <% @cats.each do |cat| %>
     <div class="col-sm-4">

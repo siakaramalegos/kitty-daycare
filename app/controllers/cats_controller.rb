@@ -4,10 +4,19 @@ class CatsController < ApplicationController
   # GET /cats
   # GET /cats.json
   def index
+    @breeds = Breed.all
+    breed_ids = params[:breed_ids]
+
     if params[:search]
       @cats = Cat.where("name LIKE ?", "%#{params[:search]}%")
       if @cats.size.zero?
         flash[:notice] = "No result found"
+        @cats = Cat.all
+      end
+    elsif params[:breed_ids]
+      @cats = Cat.where(breed_id: params[:breed_ids])
+      if @cats.size.zero?
+        flash[:notice] = "No cats of that breed"
         @cats = Cat.all
       end
     else
